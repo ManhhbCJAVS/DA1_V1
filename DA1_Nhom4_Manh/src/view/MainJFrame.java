@@ -41,6 +41,11 @@ public final class MainJFrame extends javax.swing.JFrame {
         controller.setView(jpnBanHang, jlbBanHang); //Thiết lập cái đầu đc chọn.
     }
 
+    public static void logout() {
+        Main main = new Main();
+        main.setVisible(true);
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -350,6 +355,11 @@ public final class MainJFrame extends javax.swing.JFrame {
         jlbDangXuat.setIconTextGap(18);
         jlbDangXuat.setMaximumSize(new java.awt.Dimension(200, 200));
         jlbDangXuat.setPreferredSize(new java.awt.Dimension(30, 35));
+        jlbDangXuat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlbDangXuatMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpnDangXuatLayout = new javax.swing.GroupLayout(jpnDangXuat);
         jpnDangXuat.setLayout(jpnDangXuatLayout);
@@ -437,6 +447,10 @@ public final class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jlbDangXuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbDangXuatMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jlbDangXuatMouseClicked
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {

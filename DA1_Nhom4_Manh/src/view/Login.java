@@ -147,7 +147,7 @@ public class Login extends javax.swing.JPanel {
             GetChucVu.setMatkhau(lg.getMatkhau());
             GetChucVu.setChucvu(lg.getChucVu());
             System.out.println("ID :" + lg.getId_NV() + " maNV :" + lg.getManv() + " MK :" + lg.getMatkhau() + " Chức.Vụ :" + lg.getChucVu());
-            
+
             MainJFrame mjfarme = new MainJFrame();
             mjfarme.setVisible(true);
             // Đóng JFrame hoặc JPanel hiện tại
@@ -176,7 +176,6 @@ public class Login extends javax.swing.JPanel {
                 GetChucVu.setChucvu(lg.getChucVu()); //Thông qua đối tượng đăng nhập vào lấy chức vụ của nó.
                 MainJFrame mjfarme = new MainJFrame();
                 mjfarme.setVisible(true);
-
             }
         }
     }//GEN-LAST:event_txtPassKeyPressed

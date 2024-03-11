@@ -17,6 +17,7 @@ import view.JPThongKe;
 import view.JPVoucher;
 import view.Login;
 import view.Main;
+import view.MainJFrame;
 
 //Xử lý chuyển đổi qua lại các màn hình với nhau.
 public class ChuyenManHinhController {
@@ -93,19 +94,19 @@ public class ChuyenManHinhController {
                     node = new JPKhachHang();
                     break;
                 case "Đăng Xuất":
-                    node = new JPKhachHang();
-//                    node = new Main();
-//                    this.dispose();
+                    MainJFrame.logout();
                     break;
                 default:
                     break;
             }
-            root.removeAll();
-            root.setLayout(new BorderLayout());
-            root.add(node);
-            root.validate();
-            root.repaint();
-            setChangeBackground(kind);
+            if (!kind.endsWith("Đăng Xuất")) {
+                root.removeAll();
+                root.setLayout(new BorderLayout());
+                root.add(node);
+                root.validate();
+                root.repaint();
+                setChangeBackground(kind);
+            }
         }
 
         @Override //Gọi khi chuột đc nhấn xuống. ( Chưa cần thiết ) 
