@@ -29,12 +29,12 @@ import service.NhanVien_Service;
 import utility.MsgBox;
 
 public class JPHoaDon extends javax.swing.JPanel {
-    
+
     public JPHoaDon() {
         initComponents();
         init();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -626,6 +626,7 @@ public class JPHoaDon extends javax.swing.JPanel {
                 fillHD(hdd.getListHD_By_HTTT_3(httt));
             }
         } else {
+            dtmHD = (DefaultTableModel) this.tbl_HD.getModel();
             dtmHD.setRowCount(0);
         }
     }//GEN-LAST:event_cbb_searchHtttActionPerformed
@@ -713,7 +714,7 @@ public class JPHoaDon extends javax.swing.JPanel {
     //service lấy dữ liệu
     HTTT_DAO hhttd = new HTTT_DAO();
     NhanVien_Service nvs = new NhanVien_Service();
-    
+
     public final void init() {
         fill_HTTT();
         fill_NVPT();
@@ -723,7 +724,7 @@ public class JPHoaDon extends javax.swing.JPanel {
             MsgBox.alter(this, "Chưa có hóa đơn nào được thanh toán");
         }
     }
-    
+
     private void fillHD(List<HoaDonModel_manh> listHD) {
         dtmHD = (DefaultTableModel) this.tbl_HD.getModel();
         dtmHD.setRowCount(0);
@@ -744,7 +745,7 @@ public class JPHoaDon extends javax.swing.JPanel {
             dtmHD.addRow(row);
         }
     }
-    
+
     private void fill_HTTT() {//Fill hình thức thanh toán
         dcb_HTTT = (DefaultComboBoxModel) cbb_searchHttt.getModel();
         dcb_HTTT.removeAllElements();
@@ -753,7 +754,7 @@ public class JPHoaDon extends javax.swing.JPanel {
             dcb_HTTT.addElement(httt.getTenHinhThucThanhToan());
         }
     }
-    
+
     private void fill_NVPT() {
         dcb_NVPT = (DefaultComboBoxModel) cbb_searchnvpt.getModel();
         dcb_NVPT.removeAllElements();
@@ -788,16 +789,16 @@ public class JPHoaDon extends javax.swing.JPanel {
             }
         }
     }
-    
+
     public void fill_TTKH(int idHD) {
         KhachHang kh = khs.get_TTKH_In_HD(idHD);
         txt_maKH.setText(kh.getMaKH());
         txt_tenKH.setText(kh.getName());
-        
+
         txt_sdt.setText((kh.getPhone() == null) ? "Trống" : kh.getPhone());
         txt_email.setText((kh.getEmail() == null) ? "Trống" : kh.getEmail());
         txt_diaChi.setText((kh.getAddress() == null) ? "Trống" : kh.getAddress());
-        
+
         txt_tongGTHD.setText(String.valueOf(kh.getTongGTHD()));
         txt_tongTienDua.setText(String.valueOf(kh.getTongTienTra()));
         txt_tienThua.setText(String.valueOf(kh.getTienThua()));
@@ -811,14 +812,14 @@ public class JPHoaDon extends javax.swing.JPanel {
         textField.setFont(font);
         textField.setForeground(Color.BLACK);
     }
-    
+
     public void addPlaceholderStyle(JTextField textField) {
         Font font = textField.getFont();//Lấy font hiện tại của JTextField
         font = font.deriveFont(Font.ITALIC);//Tạo 1 bản sao mới của Font với kiểu in nghiêng ( Italic )
         textField.setFont(font); //Đặt font mới cho JTextField
         textField.setForeground(Color.GRAY); //Đặt màu chữ là Gray ( Xám ) 
     }
-    
+
     public void search(String str, DefaultTableModel dtmTable, JTable table) {
         dtmTable = (DefaultTableModel) table.getModel();
         TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(dtmTable); //Tạo 1 TablerowSorter và liên kết với bảng DTM. TableRowSoft : Quản lý việc sắp xếp và lọc các hàng trong JTable.
